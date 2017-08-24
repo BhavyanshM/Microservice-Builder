@@ -22,7 +22,7 @@ public class MainApplication extends Application{
 		window = primaryStage;
 		loader = new FXMLLoader();
 		root = loader.load(getClass().getResource("/views/Main.fxml").openStream());
-		scene = new Scene(root, 800, 600);		
+		scene = new Scene(root, 1000, 700);		
 		window.setScene(scene);
 		window.show();
 	}
