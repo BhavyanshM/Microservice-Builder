@@ -83,15 +83,15 @@
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </VBox.margin></JFXButton>
-                  <JFXButton buttonType="RAISED" prefHeight="83.0" prefWidth="217.0" ripplerFill="#69e01a" style="-fx-background-color: #FFF8E1;" text="Database">
+                  <JFXButton fx:id="databaseButton" buttonType="RAISED" onAction="#onButtonClicked" prefHeight="83.0" prefWidth="217.0" ripplerFill="#69e01a" style="-fx-background-color: #FFF8E1;" text="Database">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </VBox.margin></JFXButton>
-                  <JFXButton buttonType="RAISED" prefHeight="83.0" prefWidth="217.0" ripplerFill="#69e01a" style="-fx-background-color: #FFECB3;" text="API">
+                  <JFXButton fx:id="apiButton" buttonType="RAISED" onAction="#onButtonClicked" prefHeight="83.0" prefWidth="217.0" ripplerFill="#69e01a" style="-fx-background-color: #FFECB3;" text="API">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </VBox.margin></JFXButton>
-                  <JFXButton buttonType="RAISED" prefHeight="87.0" prefWidth="217.0" ripplerFill="#69e01a" style="-fx-background-color: #FFF8E1;" text="Setup">
+                  <JFXButton fx:id="setupButton" buttonType="RAISED" onAction="#onButtonClicked" prefHeight="87.0" prefWidth="217.0" ripplerFill="#69e01a" style="-fx-background-color: #FFF8E1;" text="Setup">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </VBox.margin></JFXButton>

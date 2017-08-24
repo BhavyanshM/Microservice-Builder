@@ -42,6 +42,18 @@ public class Controller {
 			case "packagesButton":
 				newPane.getChildren().add(builder.getBox("packages_design"));
 				break;
+				
+			case "databaseButton":
+				newPane.getChildren().add(builder.getBox("database_design"));
+				break;
+				
+			case "apiButton":
+				newPane.getChildren().add(builder.getBox("api_design"));
+				break;
+				
+			case "setupButton":
+				newPane.getChildren().add(builder.getBox("setup_design"));
+				break;
 		}
 			
 		

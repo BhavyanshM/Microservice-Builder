@@ -24,6 +24,25 @@ public class FormInterfaceBuilder {
 		form.addKey("Repository Name");
 		form.addKey("Package Name");
 		forms.add(form);
+		
+		form = new Form(Form.idOne++, "database_design");
+		form.addKey("Database System");
+		form.addKey("Database Container Name");
+		form.addKey("Collection Name");
+		forms.add(form);
+		
+		form = new Form(Form.idOne++, "api_design");
+		form.addKey("Add API Route");
+		form.addKey("Protocol");
+		form.addKey("Parameters");
+		forms.add(form);
+		
+		form = new Form(Form.idOne++, "setup_design");
+		form.addKey("Microservice Name");
+		form.addKey("Programming Language");
+		form.addKey("Model Name");
+		form.addKey("Authentication");
+		forms.add(form);
 	}
 	
 	public VBox getBox(String name){
