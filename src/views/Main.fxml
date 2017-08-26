@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<StackPane prefHeight="686.0" prefWidth="996.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Controller">
+<StackPane prefHeight="732.0" prefWidth="1003.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Controller">
    <children>
       <BorderPane fx:id="pane" prefHeight="665.0" prefWidth="983.0">
          <top>
@@ -39,11 +39,28 @@
                       </Menu>
                     </menus>
                   </MenuBar>
-                  <HBox prefHeight="26.0" prefWidth="953.0" style="-fx-background-color: #ffffff;" />
+                  <HBox prefHeight="63.0" prefWidth="996.0" style="-fx-background-color: #ffffff;">
+                     <children>
+                        <Label fx:id="projectLabel" prefHeight="99.0" prefWidth="461.0" text="Start Project" HBox.hgrow="ALWAYS">
+                           <padding>
+                              <Insets bottom="10.0" left="20.0" right="10.0" top="10.0" />
+                           </padding>
+                           <font>
+                              <Font name="Calibri" size="36.0" />
+                           </font>
+                        </Label>
+                     </children></HBox>
                   <HBox style="-fx-background-color: #ffffff;" VBox.vgrow="ALWAYS">
                      <children>
-                        <Region prefHeight="81.0" prefWidth="217.0" HBox.hgrow="NEVER" />
-                        <JFXButton buttonType="RAISED" prefHeight="75.0" prefWidth="257.0" style="-fx-background-color: #757575;" text="Define and Design" textFill="WHITE">
+                        <JFXButton buttonType="RAISED" onAction="#addMicroservice" prefHeight="75.0" prefWidth="214.0" style="-fx-background-color: #f44336;" text="Add Microservice" textFill="WHITE" HBox.hgrow="NEVER">
+                           <HBox.margin>
+                              <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Calibri" size="18.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="designButton" buttonType="RAISED" disable="true" prefHeight="75.0" prefWidth="257.0" style="-fx-background-color: #757575;" text="Define and Design" textFill="WHITE">
                            <font>
                               <Font name="Calibri Italic" size="18.0" />
                            </font>
@@ -51,7 +68,7 @@
                               <Insets bottom="3.0" left="1.0" right="1.0" top="3.0" />
                            </HBox.margin>
                         </JFXButton>
-                        <JFXButton buttonType="RAISED" prefHeight="75.0" prefWidth="257.0" style="-fx-background-color: #757575;" text="Configure" textFill="WHITE">
+                        <JFXButton fx:id="configureButton" buttonType="RAISED" disable="true" prefHeight="75.0" prefWidth="257.0" style="-fx-background-color: #757575;" text="Configure" textFill="WHITE">
                            <font>
                               <Font name="Calibri Italic" size="18.0" />
                            </font>
@@ -59,7 +76,7 @@
                               <Insets bottom="3.0" left="1.0" right="1.0" top="3.0" />
                            </HBox.margin>
                         </JFXButton>
-                        <JFXButton buttonType="RAISED" prefHeight="75.0" prefWidth="257.0" style="-fx-background-color: #757575;" text="Deploy" textFill="WHITE">
+                        <JFXButton fx:id="deployButton" buttonType="RAISED" disable="true" prefHeight="75.0" prefWidth="257.0" style="-fx-background-color: #757575;" text="Deploy" textFill="WHITE">
                            <font>
                               <Font name="Calibri Italic" size="18.0" />
                            </font>
@@ -75,26 +92,41 @@
          <left>
             <VBox prefHeight="391.0" prefWidth="217.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
                <children>
-                  <JFXButton fx:id="containerButton" buttonType="RAISED" onAction="#onButtonClicked" prefHeight="83.0" prefWidth="217.0" ripplerFill="#69e01a" style="-fx-background-color: #FFF8E1;" text="Container">
+                  <JFXButton fx:id="containerButton" disable="true" onAction="#onButtonClicked" prefHeight="83.0" prefWidth="217.0" ripplerFill="#69e01a" style="-fx-background-color: #FFF8E1;" text="Container">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
-                     </VBox.margin></JFXButton>
-                  <JFXButton fx:id="packagesButton" buttonType="RAISED" onAction="#onButtonClicked" prefHeight="83.0" prefWidth="217.0" ripplerFill="#69de1b" style="-fx-background-color: #FFF8E1;" text="Packages">
+                     </VBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font></JFXButton>
+                  <JFXButton fx:id="packagesButton" disable="true" onAction="#onButtonClicked" prefHeight="83.0" prefWidth="217.0" ripplerFill="#69de1b" style="-fx-background-color: #FFF8E1;" text="Packages">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
-                     </VBox.margin></JFXButton>
-                  <JFXButton fx:id="databaseButton" buttonType="RAISED" onAction="#onButtonClicked" prefHeight="83.0" prefWidth="217.0" ripplerFill="#69e01a" style="-fx-background-color: #FFF8E1;" text="Database">
+                     </VBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font></JFXButton>
+                  <JFXButton fx:id="databaseButton" disable="true" onAction="#onButtonClicked" prefHeight="83.0" prefWidth="217.0" ripplerFill="#69e01a" style="-fx-background-color: #FFF8E1;" text="Database">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
-                     </VBox.margin></JFXButton>
-                  <JFXButton fx:id="apiButton" buttonType="RAISED" onAction="#onButtonClicked" prefHeight="83.0" prefWidth="217.0" ripplerFill="#69e01a" style="-fx-background-color: #FFECB3;" text="API">
+                     </VBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font></JFXButton>
+                  <JFXButton fx:id="apiButton" disable="true" onAction="#onButtonClicked" prefHeight="83.0" prefWidth="217.0" ripplerFill="#6bdb1a" style="-fx-background-color: #FFF8E1;" text="API">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
-                     </VBox.margin></JFXButton>
-                  <JFXButton fx:id="setupButton" buttonType="RAISED" onAction="#onButtonClicked" prefHeight="87.0" prefWidth="217.0" ripplerFill="#69e01a" style="-fx-background-color: #FFF8E1;" text="Setup">
+                     </VBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font></JFXButton>
+                  <JFXButton fx:id="setupButton" disable="true" onAction="#onButtonClicked" prefHeight="87.0" prefWidth="217.0" ripplerFill="#69e01a" style="-fx-background-color: #FFF8E1;" text="Setup">
                      <VBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
-                     </VBox.margin></JFXButton>
+                     </VBox.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font></JFXButton>
                </children>
             </VBox>
          </left>
@@ -124,7 +156,7 @@
                      </children>
                   </VBox>
                   <Region HBox.hgrow="ALWAYS" />
-                  <JFXButton buttonType="RAISED" prefHeight="36.0" prefWidth="99.0" ripplerFill="#e40f0f" style="-fx-background-color: #80CBC4;" text="Clear" HBox.hgrow="ALWAYS">
+                  <JFXButton fx:id="clearButton" buttonType="RAISED" disable="true" prefHeight="36.0" prefWidth="99.0" ripplerFill="#e40f0f" style="-fx-background-color: #80CBC4;" text="Clear" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets bottom="40.0" left="50.0" right="10.0" top="40.0" />
                      </HBox.margin>
@@ -132,7 +164,7 @@
                         <Font name="Calibri" size="14.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" prefHeight="36.0" prefWidth="91.0" ripplerFill="#d2d4e4" style="-fx-background-color: #0091EA;" text="Confirm" textFill="WHITE">
+                  <JFXButton fx:id="confirmButton" buttonType="RAISED" disable="true" prefHeight="36.0" prefWidth="91.0" ripplerFill="#d2d4e4" style="-fx-background-color: #0091EA;" text="Confirm" textFill="WHITE">
                      <HBox.margin>
                         <Insets bottom="40.0" left="10.0" right="50.0" top="40.0" />
                      </HBox.margin>
