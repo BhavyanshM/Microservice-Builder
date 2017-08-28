@@ -6,9 +6,10 @@ import com.jfoenix.controls.JFXButton.ButtonType;
 import com.jfoenix.controls.JFXTextField;
 
 import application.FormInterfaceBuilder;
+import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,13 +19,14 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 public class Controller {
 	
 	private FXMLLoader loader;
 	private Parent root;
 	
-	private String projectName;
+	static String projectName;
 	
 	private Gson gson;
 	
@@ -61,26 +63,45 @@ public class Controller {
 	@FXML
 	private Label projectLabel;
 	
+
 	public Controller(){
 		builder = new FormInterfaceBuilder();
+		projectName = "Start Project";
+
 	}
 	
 	public void onConfirmClicked(ActionEvent event) throws Exception{
-		this.projectName = name.getText();
-		if(!this.projectName.equals("")){
+		projectName = name.getText();
+		if(!projectName.equals("Start Project")){
 			((Stage)((Button)(event.getSource())).getScene().getWindow()).close();
-			System.out.print(this.projectName);
+			System.out.println(projectName);
 		}
 	}
 	
 	@FXML
 	public void addMicroservice(ActionEvent event) throws Exception{
+		System.out.println("projectName: " + projectName);
+//		this.projectLabel.textProperty().bind(projectName);
 		Stage stage = new Stage();
 		this.loader = new FXMLLoader();
 		this.root = loader.load(getClass().getResource("/views/Form.fxml").openStream());
 		stage.setScene(new Scene(root));
 		stage.show();
-//		activateInterface();
+		activateInterface();
+		stage.setOnHiding(new EventHandler<WindowEvent>() {
+
+            @Override
+            public void handle(WindowEvent event) {
+                Platform.runLater(new Runnable() {
+
+                    @Override
+                    public void run() {
+                    	System.out.println(projectName);
+                        projectLabel.setText(projectName);
+                    }
+                });
+            }
+        });
 	}
 	
 	@FXML
@@ -147,7 +168,8 @@ public class Controller {
 		deployButton.setDisable(false);
 		clearButton.setDisable(false);
 		confirmButton.setDisable(false);
+		containerButton.fire();
 	}
-	
-	
+
+
 }
